@@ -1,4 +1,5 @@
 import { IterableDiffers } from '@angular/core';
+import { TestBed } from '@angular/core/testing';
 import { Kata } from './kata';
 
 describe('Kata', () => {
