@@ -1,4 +1,12 @@
 export class Kata {
+  changeDict(arg0 : number[]): { [key: number]: number } {
+    const count = arg0.reduce((a:any, b:any) => ({ ...a,
+      [b]: (a[b] || 0) + 1
+    }), {})
+
+    return count;
+  };
+
   price(arg0: number[]): any {
     // throw new Error('Method not implemented.');
     let bookNum = arg0.length;
@@ -12,16 +20,8 @@ export class Kata {
     discountDict.set(4, 0.8);
     discountDict.set(5, 0.75);
 
-
-    // for (let i = 0; i < arg0.length; i++) {
-    //     bookNum += arg0[i];
-    // }
-    const count = (arg0:any) =>
-      arg0.reduce((a:any, b:any) => ({ ...a,
-        [b]: (a[b] || 0) + 1
-    }), {});
     // Change book list into dictionary
-    let argDict = count(arg0);
+    let argDict = this.changeDict(arg0);
     
 
     if(Object.keys(argDict).length == bookNum){
