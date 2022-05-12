@@ -16,11 +16,12 @@ describe('Kata', () => {
     expect(kata.price([1,1,1])).toBe(8*3);
   });
 
-  it('test it', ()=>{
+  test('testSimpleDiscounts', () => {
     const kata = new Kata();
-    expect(kata.price([])).toEqual(0);
-    expect(kata.price([1])).toEqual(8);
+    expect(kata.price([0, 1])).toBe(8 * 2 * 0.95);
+    expect(kata.price([0, 2, 4])).toBe(8 * 3 * 0.9);
+    expect(kata.price([0, 1, 2, 4])).toBe(8 * 4 * 0.8);
+    expect(kata.price([0, 1, 2, 3, 4])).toBe(8 * 5 * 0.75);
   });
-
   
 });
