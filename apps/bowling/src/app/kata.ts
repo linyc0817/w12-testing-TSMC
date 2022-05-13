@@ -18,6 +18,33 @@ export class Kata {
     return basket;
   }
 
+  isValidKey(key:string|number|symbol, object:object): key is keyof typeof object {
+    return key in object;
+  }
+
+  pickComb(dict:{[key: number]: number}, combNum: number){
+    // Get the first N category that have most counts 
+    // Create items array
+    let items = Object.keys(dict).map((key) => {
+      if(this.isValidKey(key,dict)){
+        return [key, dict[key]];
+      }
+      return [];
+    });
+    // Sort the array based on the second element
+    items.sort(function(first, second) {
+      return second[1] - first[1];
+    });
+    // Create a new array with only the first 2 items
+    let tmp: number[] = [];
+    let tmpArray = items.slice(0,combNum);
+    const iterator = tmpArray.keys();
+    for(const key of iterator){
+      tmp.push(Number(tmpArray[key][0]));
+    }
+    return tmp;
+  }
+
   price(arg0: number[]): any {
     // throw new Error('Method not implemented.');
     let bookNum = arg0.length;
@@ -36,6 +63,7 @@ export class Kata {
     
     if(arg0.length == 5){
       let removeObject = [0,1,3];
+      // copy one basket
       let tmpBasket = Object.assign([],arg0);
       this.removeBooks(tmpBasket,removeObject);
     }
@@ -46,6 +74,14 @@ export class Kata {
       let discount = discountDict.get(bookNum) || 1;
       return minPrice*discount;
     }
+    else{
+      let maxCategory = Object.keys(argDict).length;
+      console.log(argDict);
+
+      let comb = this.pickComb(argDict,2);
+      console.log(comb);
+      
+    };
 
     return minPrice;
   }
