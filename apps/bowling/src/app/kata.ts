@@ -7,6 +7,17 @@ export class Kata {
     return count;
   };
 
+  removeBooks(basket : number[], removeObject: number[]){
+    while(removeObject.length){
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      const index = basket.indexOf(removeObject.pop()!);
+      if(index !== -1){
+        basket.splice(index,1);
+      }
+    }
+    return basket;
+  }
+
   price(arg0: number[]): any {
     // throw new Error('Method not implemented.');
     let bookNum = arg0.length;
@@ -23,6 +34,11 @@ export class Kata {
     // Change book list into dictionary
     let argDict = this.changeDict(arg0);
     
+    if(arg0.length == 5){
+      let removeObject = [0,1,3];
+      let tmpBasket = Object.assign([],arg0);
+      this.removeBooks(tmpBasket,removeObject);
+    }
 
     if(Object.keys(argDict).length == bookNum){
       // no duplicate book
