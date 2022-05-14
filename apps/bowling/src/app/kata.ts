@@ -60,13 +60,6 @@ export class Kata {
 
     // Change book list into dictionary
     let argDict = this.changeDict(arg0);
-    
-    if(arg0.length == 5){
-      let removeObject = [0,1,3];
-      // copy one basket
-      let tmpBasket = Object.assign([],arg0);
-      this.removeBooks(tmpBasket,removeObject);
-    }
 
     if(Object.keys(argDict).length == bookNum){
       // no duplicate book
@@ -76,11 +69,19 @@ export class Kata {
     }
     else{
       let maxCategory = Object.keys(argDict).length;
-      console.log(argDict);
+      // console.log(argDict);
 
-      let comb = this.pickComb(argDict,2);
-      console.log(comb);
-      
+      for(let i = maxCategory; i>=1;i--){
+        let comb = this.pickComb(argDict,i);
+        let combDiscount = discountDict.get(comb.length) || 1;
+        let combPrice = 8*comb.length*combDiscount;
+        // copy one basket
+        let tmpBasket = Object.assign([],arg0);
+        combPrice += this.price(this.removeBooks(tmpBasket,comb))
+        if( combPrice < minPrice){
+          minPrice = combPrice;
+        }
+      }
     };
 
     return minPrice;
