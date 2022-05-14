@@ -74,6 +74,8 @@ export class Kata {
         let comb = this.pickComb(argDict,i);
         let combDiscount = discountDict.get(comb.length) || 1;
         let combPrice = 8*comb.length*combDiscount;
+        if(8*(arg0.length - i)*0.75 > minPrice - combPrice)
+          continue;
         // Remove comb books 
         let tmpBasket = Object.assign([],arg0);
         combPrice += this.price(this.removeBooks(tmpBasket,comb))
