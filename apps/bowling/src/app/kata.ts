@@ -69,13 +69,12 @@ export class Kata {
     }
     else{
       let maxCategory = Object.keys(argDict).length;
-      // console.log(argDict);
 
       for(let i = maxCategory; i>=1;i--){
         let comb = this.pickComb(argDict,i);
         let combDiscount = discountDict.get(comb.length) || 1;
         let combPrice = 8*comb.length*combDiscount;
-        // copy one basket
+        // Remove comb books 
         let tmpBasket = Object.assign([],arg0);
         combPrice += this.price(this.removeBooks(tmpBasket,comb))
         if( combPrice < minPrice){
