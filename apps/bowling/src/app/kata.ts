@@ -74,6 +74,7 @@ export class Kata {
         let comb = this.pickComb(argDict,i);
         let combDiscount = discountDict.get(comb.length) || 1;
         let combPrice = 8*comb.length*combDiscount;
+        // if the remain books have the largest discount still can't be more cheaper
         if(8*(arg0.length - i)*0.75 > minPrice - combPrice)
           continue;
         // Remove comb books 
