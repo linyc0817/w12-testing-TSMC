@@ -24,8 +24,13 @@ For example, how much does this basket of books cost?
 * 2 copies of the third book
 * 1 copy of the fourth book
 * 1 copy of the fifth book
+
 answer :
-`(4 * 8) - 20% [first book, second book, third book, fourth book]+ (4 * 8) - 20% [first book, second book, third book, fifth book]= 25.6 * 2 = 51.20`
+
+```
+(4 * 8) - 20% [first book, second book, third book, fourth book]+ (4 * 8) - 20% [first book, second book, third book, fifth book]= 25.6 * 2 = 51.20
+```
+
 ## Clues
 You’ll find that this Kata is easy at the start. You can get going with tests for baskets of 0 books, 1 book, 2 identical books, 2 different books… and it is not too difficult to work in small steps and gradually introduce complexity.
 
