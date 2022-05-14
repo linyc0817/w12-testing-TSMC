@@ -4,7 +4,9 @@
 [![Test](https://github.com/linyc0817/w12-testing-TSMC/actions/workflows/main.yml/badge.svg)](https://github.com/linyc0817/w12-testing-TSMC/actions/workflows/main.yml)
 
 > Target Files:
+> 
 > apps/bowling/src/app/kata.spec.ts
+> 
 > apps/bowling/src/app/kata.ts
 
 # Problem Introduce
