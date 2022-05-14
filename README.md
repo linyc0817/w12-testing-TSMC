@@ -3,6 +3,9 @@
 
 [![Test](https://github.com/linyc0817/w12-testing-TSMC/actions/workflows/main.yml/badge.svg)](https://github.com/linyc0817/w12-testing-TSMC/actions/workflows/main.yml)
 
+> Target Files:
+> apps/bowling/src/app/kata.spec.ts
+> apps/bowling/src/app/kata.ts
 
 # Problem Introduce
 ## Potter
@@ -76,3 +79,6 @@ def testEdgeCases
            4, 4, 4, 4]))
 end
 ```
+
+## Reference
+- [Potter Kata](https://codingdojo.org/kata/Potter/)
